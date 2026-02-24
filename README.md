@@ -14,45 +14,7 @@ Built with [Firecrawl](https://firecrawl.dev) Browser Sandboxes, Claude Sonnet, 
 4. **Watch it happen** — the live browser viewport, agent terminal commands, and navigation steps update in real time via SSE
 5. **Results** — see if the AI made it, how your prediction stacked up, and the full path taken
 
-## Architecture
 
-```
-┌─────────────────────────────────────────────┐
-│  Next.js App (React 19 + Tailwind v4)       │
-│  ┌─────────────┐  ┌──────────────────────┐  │
-│  │  Feed (snap  │  │  Zustand Store        │  │
-│  │  scroll)     │──│  cards, polls, races  │  │
-│  │  FeedCard    │  │  SSE stream parsing   │  │
-│  └─────────────┘  └──────────────────────┘  │
-│         │                    │               │
-│  ┌──────┴──────┐  ┌─────────┴────────────┐  │
-│  │ Components  │  │  API Routes           │  │
-│  │ Browser     │  │  /api/race/start      │  │
-│  │ Viewport    │  │  /api/race/run (SSE)  │  │
-│  │ Terminal    │  │  /api/cards            │  │
-│  │ Poll        │  │  /api/poll             │  │
-│  │ StepOverlay │  └─────────┬────────────┘  │
-│  └─────────────┘            │               │
-└─────────────────────────────┼───────────────┘
-                              │
-         ┌────────────────────┴────────────────────┐
-         │          Firecrawl Browser Sandbox       │
-         │  ┌─────────────────────────────────────┐ │
-         │  │  Remote Chromium instance            │ │
-         │  │  • Live viewport via liveViewUrl     │ │
-         │  │  • Bash execution (agent-browser CLI)│ │
-         │  │  • 300s TTL, 120s activity timeout   │ │
-         │  └─────────────────────────────────────┘ │
-         │                    │                     │
-         │  ┌─────────────────┴───────────────────┐ │
-         │  │  Claude Sonnet 4 (AI SDK)            │ │
-         │  │  • System prompt: navigate A → B     │ │
-         │  │  • Tools: browser (snapshot/click),  │ │
-         │  │    report_step (log progress)         │ │
-         │  │  • Streams steps via SSE to client   │ │
-         │  └─────────────────────────────────────┘ │
-         └─────────────────────────────────────────┘
-```
 
 ## Firecrawl Browser Sandbox
 
@@ -118,6 +80,46 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────┐
+│  Next.js App (React 19 + Tailwind v4)       │
+│  ┌─────────────┐  ┌──────────────────────┐  │
+│  │  Feed (snap  │  │  Zustand Store        │  │
+│  │  scroll)     │──│  cards, polls, races  │  │
+│  │  FeedCard    │  │  SSE stream parsing   │  │
+│  └─────────────┘  └──────────────────────┘  │
+│         │                    │               │
+│  ┌──────┴──────┐  ┌─────────┴────────────┐  │
+│  │ Components  │  │  API Routes           │  │
+│  │ Browser     │  │  /api/race/start      │  │
+│  │ Viewport    │  │  /api/race/run (SSE)  │  │
+│  │ Terminal    │  │  /api/cards            │  │
+│  │ Poll        │  │  /api/poll             │  │
+│  │ StepOverlay │  └─────────┬────────────┘  │
+│  └─────────────┘            │               │
+└─────────────────────────────┼───────────────┘
+                              │
+         ┌────────────────────┴────────────────────┐
+         │          Firecrawl Browser Sandbox       │
+         │  ┌─────────────────────────────────────┐ │
+         │  │  Remote Chromium instance            │ │
+         │  │  • Live viewport via liveViewUrl     │ │
+         │  │  • Bash execution (agent-browser CLI)│ │
+         │  │  • 300s TTL, 120s activity timeout   │ │
+         │  └─────────────────────────────────────┘ │
+         │                    │                     │
+         │  ┌─────────────────┴───────────────────┐ │
+         │  │  Claude Sonnet 4 (AI SDK)            │ │
+         │  │  • System prompt: navigate A → B     │ │
+         │  │  • Tools: browser (snapshot/click),  │ │
+         │  │    report_step (log progress)         │ │
+         │  │  • Streams steps via SSE to client   │ │
+         │  └─────────────────────────────────────┘ │
+         └─────────────────────────────────────────┘
+```
 
 ## Stack
 
