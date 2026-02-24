@@ -6,6 +6,11 @@ Built with [Firecrawl](https://firecrawl.dev) Browser Sandboxes, Claude Sonnet, 
 
 ![Wikipedia Race UI](https://img.shields.io/badge/Next.js-16-black) ![Firecrawl](https://img.shields.io/badge/Firecrawl-Browser%20Sandbox-orange) ![Claude](https://img.shields.io/badge/Claude-Sonnet%204-blueviolet)
 
+<p align="center">
+  <img src="public/wikitok.png" alt="WikiTok" width="600" />
+</p>
+
+
 ## How it works
 
 1. **Feed loads** — random Wikipedia start/target pairs are generated
