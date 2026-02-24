@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #f8f9fa;
+  --color-foreground: #202122;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-wiki-blue: #0645ad;
+  --color-wiki-blue-hover: #0b0080;
+  --color-wiki-blue-visited: #0b0080;
+  --color-wiki-border: #a2a9b1;
+  --color-wiki-bg: #f8f9fa;
+  --color-wiki-paper: #ffffff;
+  --color-wiki-header-border: #a7d7f9;
+  --color-wiki-infobox: #f8f9fa;
+  --color-wiki-green: #14866d;
+  --color-wiki-red: #d73333;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f9fa;
+  color: #202122;
+  font-family: "Linux Libertine", "Georgia", "Times", serif;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.wiki-link {
+  color: #0645ad;
+  text-decoration: none;
+}
+.wiki-link:hover {
+  text-decoration: underline;
+}
+
+.wiki-heading {
+  font-family: "Linux Libertine", "Georgia", "Times", serif;
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 0.15em;
+  font-weight: 400;
+}
+
+.wiki-infobox {
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+@keyframes wiki-cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes wiki-highlight {
+  0% { background-color: transparent; }
+  30% { background-color: #fff1a8; }
+  100% { background-color: transparent; }
+}
+
+.wiki-highlight-flash {
+  animation: wiki-highlight 1.5s ease-out;
+}
+
+@keyframes wiki-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(6, 69, 173, 0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(6, 69, 173, 0); }
+}
+
+.wiki-pulse {
+  animation: wiki-pulse 2s ease-in-out infinite;
+}
+
+@keyframes subtle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.subtle-float {
+  animation: subtle-float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 69, 173, 0.04) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
