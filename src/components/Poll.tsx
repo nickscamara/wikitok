@@ -7,7 +7,7 @@ const OPTIONS: { key: PollOption; label: string; shortLabel: string; emoji: stri
   { key: "1-3", label: "1\u20133 clicks", shortLabel: "1\u20133", emoji: "\uD83C\uDFAF" },
   { key: "4-6", label: "4\u20136 clicks", shortLabel: "4\u20136", emoji: "\uD83D\uDD25" },
   { key: "7-9", label: "7\u20139 clicks", shortLabel: "7\u20139", emoji: "\uD83D\uDE05" },
-  { key: "10+", label: "10+ clicks", shortLabel: "10+", emoji: "\uD83D\uDC80" },
+  { key: "10+", label: "10+ clicks", shortLabel: "10+", emoji: "\uD83D\uDE2E" }
 ];
 
 interface PollProps {
