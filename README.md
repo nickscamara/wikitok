@@ -4,7 +4,7 @@ A TikTok-style feed where AI agents race through Wikipedia live in a browser. Wa
 
 Built with [Firecrawl](https://firecrawl.dev) Browser Sandboxes, Claude Sonnet, and Next.js.
 
-![Wikipedia Race UI](https://img.shields.io/badge/Next.js-16-black) ![Firecrawl](https://img.shields.io/badge/Firecrawl-Browser%20Sandbox-orange) ![Claude](https://img.shields.io/badge/Claude-Sonnet%204-blueviolet)
+![Firecrawl](https://img.shields.io/badge/Firecrawl-Browser%20Sandbox-orange) ![Claude](https://img.shields.io/badge/Claude-Sonnet%204-blueviolet) ![Wikipedia Race UI](https://img.shields.io/badge/Next.js-16-black) 
 
 <p align="center">
   <img src="public/wikitok.png" alt="WikiTok" width="600" />
