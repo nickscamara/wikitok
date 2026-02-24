@@ -1,6 +1,6 @@
 # WikiTok
 
-A TikTok-style feed where AI agents race through Wikipedia — live in your browser. Watch an AI navigate from one article to another by clicking hyperlinks, predict how many clicks it'll take, and see the results.
+A TikTok-style feed where AI agents race through Wikipedia live in a browser. Watch an AI navigate from one article to another by clicking hyperlinks, predict how many clicks it'll take, and see the results.
 
 Built with [Firecrawl](https://firecrawl.dev) Browser Sandboxes, Claude Sonnet, and Next.js.
 
